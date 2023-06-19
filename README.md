@@ -1,2 +1,14 @@
 # AZ-Hackathon-Scarpping
-Get the dataset from 'data' branch of https://github.com/prabaljainn/Leetcode-Questions-Scrapper/tree/data
+Get the dataset from 'Qdata' branch of https://github.com/prabaljainn/Leetcode-Questions-Scrapper/tree/data
+# Steps to Run
+First clone the project :
+  git clone https://link-to-project
+Go to the project Directory
+   cd my_project
+Install the Dependencies
+  pip install flask
+  pip install flask-wtf
+  pip install selenium
+  pip install beautifulsoup4
+Start the server
+     flask --app app run
