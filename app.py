@@ -110,7 +110,12 @@ def get_tf_dictionary(term):
             else:
                 tf_values[document] += 1
     for document in tf_values:
-        tf_values[document] /= len(documents[int(document)])
+        try:
+          tf_values[document] /= len(documents[int(document)])
+        except (ZeroDivisionError, ValueError, IndexError) as e:
+            print(e)
+            print(document)
+
     return tf_values
 
 
@@ -122,7 +127,7 @@ def get_idf_values(term):
 def calculate_sorted_order_of_documents(query_terms):
     potential_documents = {}
     for term in query_terms:
-        if vocab[term] == 0:
+        if term not in vocab :
             continue
         tf_values_by_document = get_tf_dictionary(term)
         idf_value = get_idf_values(term)
